@@ -1,7 +1,7 @@
 // components/Benefits.tsx
 
 import React from 'react';
-import { AiFillLike, AiFillEnvironment, AiOutlineSafety } from 'react-icons/ai';
+import { AiOutlineTranslation, AiOutlineSchedule, AiOutlineSafety } from 'react-icons/ai';
 
 interface Benefit {
   icon: React.ReactNode;
@@ -11,19 +11,19 @@ interface Benefit {
 
 const benefits: Benefit[] = [
   {
-    icon: <AiFillLike className="text-blueCustom" />,
-    title: 'Personalized Experiences',
-    description: 'We tailor our tours to your interests for a unique experience.',
+    icon: <AiOutlineTranslation className="text-blueCustom" />,
+    title: 'Guía Bilingüe',
+    description: 'Shane no solo es un experto en Cairns, sino que también habla japonés, facilitando una comunicación fluida y personalizada.',
   },
   {
-    icon: <AiFillEnvironment className="text-blueCustom" />,
-    title: 'Commitment to Sustainability',
-    description: 'Responsible practices that protect the environment and support communities.',
+    icon: <AiOutlineSchedule className="text-blueCustom" />,
+    title: 'Flexibilidad Total',
+    description: 'Organiza tu tour según tu propio horario y disfruta de una experiencia totalmente adaptada a tus necesidades.',
   },
   {
     icon: <AiOutlineSafety className="text-blueCustom" />,
-    title: 'High Quality and Safety',
-    description: 'We prioritize your safety and well-being, offering tours with high standards.',
+    title: 'Comodidad y Seguridad',
+    description: 'Viaja en un vehículo espacioso y seguro, diseñado para tu comodidad y bienestar durante todo el recorrido.',
   },
 ];
 
@@ -32,7 +32,7 @@ const Benefits: React.FC = () => {
     <section id="beneficios" className="py-16 bg-gray-100">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-semibold text-center mb-12 text-gray-800">
-          Why Choose TrueBlueTours?
+          Por Qué Elegir TrueBlue Tours?
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {benefits.map((benefit, index) => (
