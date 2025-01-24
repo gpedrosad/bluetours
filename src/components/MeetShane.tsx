@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import BookTour from './BookTour';
 
 const MeetShane: React.FC = () => {
   return (
@@ -43,12 +44,7 @@ const MeetShane: React.FC = () => {
 
       {/* Call to Action */}
       <div className="text-center mt-8">
-        <a
-          href="/book"
-          className="px-6 py-3 bg-indigo-600 text-white text-lg font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition-colors"
-        >
-          Book Your Tour Now
-        </a>
+        <BookTour buttonText="Book a Tour with Shane" />
       </div>
     </div>
   );
