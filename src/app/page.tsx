@@ -7,7 +7,7 @@ import MeetShane from "@/components/MeetShane";
 import Timeline from "@/components/Timeline";
 import BookTour from "@/components/BookTour";
 import Pricing from "@/components/Pricing";
-
+import Slider from "@/components/Slider";
 
 
 export default function Home() {
@@ -16,6 +16,7 @@ export default function Home() {
       <Header />
       <Benefits />
       <ServiceCards />
+      <Slider />
       <FAQAccordion />
       <MeetShane />
       <BookTour buttonText="Book Now" />
