@@ -50,7 +50,8 @@ const FAQAccordion: React.FC = () => {
 
   return (
     <div className="max-w-3xl mx-auto my-10 p-6 bg-white rounded-lg shadow-lg">
-      <h2 className="text-3xl font-bold text-center mb-8">
+      <h2 className="text-3xl font-bold text-center mb-8"
+      style={{ fontFamily: "Poppins, sans-serif" }}>
         Frequently Asked Questions
       </h2>
       <div className="space-y-4">

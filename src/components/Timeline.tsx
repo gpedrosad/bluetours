@@ -78,7 +78,8 @@ const schedule: ScheduleItem[] = [
 const Timeline: React.FC = () => {
   return (
     <div className="container mx-auto px-4 py-12">
-      <h2 className="text-4xl font-extrabold mb-12 text-center text-blue-600">
+      <h2 className="text-4xl font-extrabold mb-12 text-center text-blue-600"
+      style={{ fontFamily: "Poppins, sans-serif" }}>
         Horario del Tour por las Mesetas de Cairns Atherton
       </h2>
       <div className="relative">

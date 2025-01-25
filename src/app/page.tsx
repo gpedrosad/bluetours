@@ -19,6 +19,9 @@ export default function Home() {
     { src: "/ragallodairy4.JPG", alt: "Ragallo Dairy 4" },
     { src: "/ragallodairy5.JPG", alt: "Ragallo Dairy 5" },
     { src: "/ragallodairy6.JPG", alt: "Ragallo Dairy 6" },
+    { src: "/lakebarrine1.JPG", alt: "Lake Barrine 1" },
+    { src: "/lakebarrine2.JPG", alt: "Lake Barrine 2" },
+    { src: "/lakebarrine3.JPG", alt: "Lake Barrine 3" },
   ];
 
   return (

@@ -7,7 +7,8 @@ const MeetShane: React.FC = () => {
   return (
     <div className="max-w-5xl mx-auto my-16 p-8 bg-white rounded-2xl shadow-xl">
       {/* Heading */}
-      <h2 className="text-4xl font-bold text-center mb-8">
+      <h2 className="text-4xl font-bold text-center mb-8"
+      style={{ fontFamily: "Poppins, sans-serif" }}>
         Meet Shane, Your Tour Guide
       </h2>
 
