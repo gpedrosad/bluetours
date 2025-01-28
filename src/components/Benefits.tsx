@@ -31,7 +31,7 @@ const Benefits: React.FC = () => {
   return (
     <section id="beneficios" className="py-16 bg-gray-100">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-semibold text-center mb-12 text-gray-800"
+        <h2 className="text-3xl md:text-4xl font-semibold text-center mb-12"
         style={{ fontFamily: "Poppins, sans-serif" }}>
           Por Qué Elegir TrueBlue Tours?
         </h2>
