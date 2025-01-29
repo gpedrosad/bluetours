@@ -7,10 +7,12 @@ const MeetShane: React.FC = () => {
   return (
     <div className="max-w-5xl mx-auto my-16 p-8 bg-white rounded-2xl shadow-xl">
       {/* Heading */}
-      <h2 className="text-4xl font-bold text-center mb-8"
-      style={{ fontFamily: "Poppins, sans-serif" }}>
-        Meet Shane, Your Tour Guide
-      </h2>
+      <h2
+  className="text-3xl font-extrabold bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 bg-clip-text text-transparent mb-8 text-center drop-shadow-lg"
+  style={{ fontFamily: "Poppins, sans-serif" }}
+>
+  Meet Shane, your Tour Guide
+</h2>
 
       <div className="flex flex-col md:flex-row items-center gap-8">
         {/* Image Section */}

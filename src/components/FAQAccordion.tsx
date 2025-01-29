@@ -50,10 +50,12 @@ const FAQAccordion: React.FC = () => {
 
   return (
     <div className="max-w-3xl mx-auto my-10 p-6 bg-white rounded-lg shadow-lg">
-      <h2 className="text-3xl font-bold text-center mb-8"
-      style={{ fontFamily: "Poppins, sans-serif" }}>
-        Frequently Asked Questions
-      </h2>
+      <h2
+  className="text-3xl font-extrabold bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 bg-clip-text text-transparent mb-8 text-center drop-shadow-lg"
+  style={{ fontFamily: "Poppins, sans-serif" }}
+>
+  Frequently Asked Questions
+</h2>
       <div className="space-y-4">
         {faqs.map((faq, index) => (
           <div

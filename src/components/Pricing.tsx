@@ -27,11 +27,11 @@ const Pricing: React.FC = () => {
   return (
     <div className="mt-6 px-4 md:px-0">
       <h2
-        className="text-4xl font-extrabold text-center mb-10"
-        style={{ fontFamily: "Poppins, sans-serif" }}
-      >
-        Lista de Precios del Tour
-      </h2>
+  className="text-3xl font-extrabold bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 bg-clip-text text-transparent mb-8 text-center drop-shadow-lg"
+  style={{ fontFamily: "Poppins, sans-serif" }}
+>
+  Pricing
+</h2>
       <div className="grid gap-6 md:grid-cols-3 justify-center">
         {pricingData.map((item, index) => (
           <div

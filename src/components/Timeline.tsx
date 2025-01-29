@@ -3,7 +3,6 @@ import React from 'react';
 import {
   AiOutlineHome,
   AiOutlineEnvironment,
-  AiOutlineFork,
   AiOutlineCoffee,
   AiOutlineCar
 } from 'react-icons/ai';
@@ -78,10 +77,12 @@ const schedule: ScheduleItem[] = [
 const Timeline: React.FC = () => {
   return (
     <div className="container mx-auto px-4 py-12">
-      <h2 className="text-4xl font-extrabold mb-12 text-center text-blue-600"
-      style={{ fontFamily: "Poppins, sans-serif" }}>
-        Horario del Tour por las Mesetas de Cairns Atherton
-      </h2>
+      <h2
+  className="text-3xl font-extrabold bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 bg-clip-text text-transparent mb-8 text-center drop-shadow-lg"
+  style={{ fontFamily: "Poppins, sans-serif" }}
+>
+  Tour Hours for Atherton Tablelands
+</h2>
       <div className="relative">
         {/* Línea vertical principal */}
         <div className="absolute left-6 top-0 bottom-0 w-1 bg-gray-300"></div>
