@@ -13,7 +13,7 @@ const Hero: React.FC = () => {
       {/* Contenido del Hero */}
       <div className="relative z-10 text-center px-4">
         <h1
-          className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 bg-clip-text text-transparent mb-4 drop-shadow-lg"
+          className="text-4xl md:text-6xl font-extrabold text-white mb-4 drop-shadow-lg"
           style={{ fontFamily: "Poppins, sans-serif" }}
         >
           ¡Excursión a las Mesetas Atherton desde Cairns!
