@@ -1,5 +1,3 @@
-// components/Benefits.tsx
-
 import React from 'react';
 import { AiOutlineTranslation, AiOutlineSchedule, AiOutlineSafety } from 'react-icons/ai';
 
@@ -11,32 +9,32 @@ interface Benefit {
 
 const benefits: Benefit[] = [
   {
-    icon: <AiOutlineTranslation className="text-blueCustom" />,
-    title: 'Guía Bilingüe',
-    description: 'Shane no solo es un experto en Cairns, sino que también habla japonés, facilitando una comunicación fluida y personalizada.',
+    icon: <AiOutlineTranslation className="text-blueCustom" />, 
+    title: 'Bilingual Guide',
+    description: 'Shane is not only an expert in Cairns but also speaks Japanese, ensuring smooth and personalized communication.',
   },
   {
     icon: <AiOutlineSchedule className="text-blueCustom" />,
-    title: 'Flexibilidad Total',
-    description: 'Organiza tu tour según tu propio horario y disfruta de una experiencia totalmente adaptada a tus necesidades.',
+    title: 'Total Flexibility',
+    description: 'Plan your tour according to your own schedule and enjoy a fully customized experience.',
   },
   {
     icon: <AiOutlineSafety className="text-blueCustom" />,
-    title: 'Comodidad y Seguridad',
-    description: 'Viaja en un vehículo espacioso y seguro, diseñado para tu comodidad y bienestar durante todo el recorrido.',
+    title: 'Comfort and Safety',
+    description: 'Travel in a spacious and secure vehicle, designed for your comfort and well-being throughout the journey.',
   },
 ];
 
 const Benefits: React.FC = () => {
   return (
-    <section id="beneficios" className="py-16 bg-gray-100">
+    <section id="benefits" className="py-16 bg-gray-100">
       <div className="container mx-auto px-4">
-      <h2
-  className="text-3xl font-extrabold bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 bg-clip-text text-transparent mb-8 text-center drop-shadow-lg"
-  style={{ fontFamily: "Poppins, sans-serif" }}
->
-  Why Choose TrueBlueTours?
-</h2>
+        <h2
+          className="text-3xl font-extrabold bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 bg-clip-text text-transparent mb-8 text-center drop-shadow-lg"
+          style={{ fontFamily: "Poppins, sans-serif" }}
+        >
+          Why Choose TrueBlueTours?
+        </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {benefits.map((benefit, index) => (
             <div

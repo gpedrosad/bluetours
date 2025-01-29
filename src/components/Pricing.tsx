@@ -5,21 +5,21 @@ import React from 'react';
 const Pricing: React.FC = () => {
   const pricingData = [
     {
-      type: 'Adultos',
-      description: '1 adulto',
-      price: '$185,00 AUD',
+      type: '大人',
+      description: '1名',
+      price: '185.00 AUD',
       icon: '👤',
     },
     {
-      type: 'Niños',
-      description: '(3-14 años)',
-      price: '$115,00 AUD',
+      type: '子供',
+      description: '(3〜14歳)',
+      price: '115.00 AUD',
       icon: '👶',
     },
     {
-      type: 'Paquete Familiar',
-      description: '(2 adultos + 2 niños)',
-      price: '$585,00 AUD',
+      type: 'ファミリーパッケージ',
+      description: '(大人2名 + 子供2名)',
+      price: '585.00 AUD',
       icon: '👨‍👩‍👧‍👦',
     },
   ];
@@ -27,27 +27,27 @@ const Pricing: React.FC = () => {
   return (
     <div className="mt-6 px-4 md:px-0">
       <h2
-  className="text-3xl font-extrabold bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 bg-clip-text text-transparent mb-8 text-center drop-shadow-lg"
-  style={{ fontFamily: "Poppins, sans-serif" }}
->
-  Pricing
-</h2>
+        className="text-3xl font-extrabold bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 bg-clip-text text-transparent mb-8 text-center drop-shadow-lg"
+        style={{ fontFamily: "Poppins, sans-serif" }}
+      >
+        料金
+      </h2>
       <div className="grid gap-6 md:grid-cols-3 justify-center">
         {pricingData.map((item, index) => (
           <div
             key={index}
             className="flex flex-col items-center bg-white rounded-lg shadow-md p-6 max-w-md transform transition-transform hover:scale-105 hover:shadow-lg"
           >
-            {/* Icono */}
+            {/* アイコン */}
             <div className="text-3xl mb-3">{item.icon}</div>
 
-            {/* Tipo */}
+            {/* タイプ */}
             <h3 className="text-lg font-semibold text-gray-700 mb-1">{item.type}</h3>
 
-            {/* Descripción */}
+            {/* 説明 */}
             <p className="text-gray-600 mb-3">{item.description}</p>
 
-            {/* Precio */}
+            {/* 価格 */}
             <div className="mt-auto">
               <span className="text-lg font-bold text-blue-600">{item.price}</span>
             </div>

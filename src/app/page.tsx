@@ -11,6 +11,9 @@ import Slider from "@/components/Slider";
 import Gallery from "@/components/Gallery";
 import Image from "next/image";
 import Hero from "@/components/Hero";
+import ReviewSlider from "@/components/ReviewSlider";
+
+
 
 export default function Home() {
   const images = [
@@ -55,6 +58,7 @@ export default function Home() {
       <MeetShane />
       <BookTour buttonText="Book Now" />
       <Pricing />
+      <ReviewSlider />
       <Timeline />
       <Gallery images={images} />
       <FAQAccordion />
