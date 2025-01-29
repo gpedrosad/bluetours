@@ -10,18 +10,18 @@ interface Benefit {
 const benefits: Benefit[] = [
   {
     icon: <AiOutlineTranslation className="text-blueCustom" />, 
-    title: 'Bilingual Guide',
-    description: 'Shane is not only an expert in Cairns but also speaks Japanese, ensuring smooth and personalized communication.',
+    title: 'バイリンガルガイド',
+    description: 'シェーンはケアンズの専門家であるだけでなく、日本語も話せるため、スムーズでパーソナライズされたコミュニケーションが可能です。',
   },
   {
     icon: <AiOutlineSchedule className="text-blueCustom" />,
-    title: 'Total Flexibility',
-    description: 'Plan your tour according to your own schedule and enjoy a fully customized experience.',
+    title: '完全な柔軟性',
+    description: 'あなたのスケジュールに合わせてツアーを計画し、完全にカスタマイズされた体験を楽しむことができます。',
   },
   {
     icon: <AiOutlineSafety className="text-blueCustom" />,
-    title: 'Comfort and Safety',
-    description: 'Travel in a spacious and secure vehicle, designed for your comfort and well-being throughout the journey.',
+    title: '快適さと安全',
+    description: '広々とした安全な車両で移動し、旅の間ずっと快適で安心な体験を提供します。',
   },
 ];
 
@@ -33,7 +33,7 @@ const Benefits: React.FC = () => {
           className="text-3xl font-extrabold bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 bg-clip-text text-transparent mb-8 text-center drop-shadow-lg"
           style={{ fontFamily: "Poppins, sans-serif" }}
         >
-          Why Choose TrueBlueTours?
+          なぜ TrueBlueTours を選ぶのか？
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {benefits.map((benefit, index) => (
@@ -41,7 +41,7 @@ const Benefits: React.FC = () => {
               key={index}
               className="flex flex-col items-center bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
             >
-              <div className="text-blueCustom text-5xl mb-4">
+              <div className="text-blue-600 text-5xl mb-4">
                 {benefit.icon}
               </div>
               <h3 className="text-xl font-semibold text-center mb-2 text-blueCustom">

@@ -10,34 +10,34 @@ interface FAQ {
 
 const faqs: FAQ[] = [
   {
-    question: 'How many days in advance can I apply via email?',
+    question: 'メールで何日前までに申し込めますか？',
     answer:
-      'It is recommended to submit your application at least 2-3 days before departure. We also accept phone applications after your arrival in Cairns.',
+      '出発の少なくとも2〜3日前までに申し込むことをお勧めします。ケアンズ到着後でも電話での申し込みは可能です。',
   },
   {
-    question: "I haven't decided on a hotel yet, can I still make a reservation?",
+    question: 'まだホテルを決めていませんが、予約できますか？',
     answer:
-      'Yes, we can arrange transportation if we know the hotel the day before the tour.',
+      'はい、ツアー前日までにホテルが決まっていれば、送迎の手配が可能です。',
   },
   {
-    question: 'Can I book a tour after arriving in Cairns?',
+    question: 'ケアンズ到着後にツアーを予約できますか？',
     answer:
-      "It's best to book as soon as you've decided on the tour date, but if seats are available, you can also book the day before.",
+      'ツアーの日程が決まり次第、できるだけ早く予約するのが理想ですが、空席があれば前日でも予約可能です。',
   },
   {
-    question: 'How do I pay?',
+    question: '支払い方法は？',
     answer:
-      'Payment should be made in cash or by credit card on the day of the tour.',
+      'ツアー当日に現金またはクレジットカードでお支払いください。',
   },
   {
-    question: 'Is there transportation service from the airport?',
+    question: '空港送迎サービスはありますか？',
     answer:
-      'Unfortunately, we do not offer airport transfers. However, we can provide information about airport buses and other transportation options.',
+      '申し訳ありませんが、空港送迎は提供しておりません。ただし、空港バスやその他の交通手段についての情報をご案内できます。',
   },
   {
-    question: 'Can I return to Cairns earlier or at a different time?',
+    question: 'ケアンズに早く戻ったり、別の時間に戻ることはできますか？',
     answer:
-      "Yes, it's possible to make some changes to the tour content to accommodate the group's preferences.",
+      'はい、グループの希望に応じて、ツアー内容を一部変更することが可能です。',
   },
 ];
 
@@ -51,11 +51,11 @@ const FAQAccordion: React.FC = () => {
   return (
     <div className="max-w-3xl mx-auto my-10 p-6 bg-white rounded-lg shadow-lg">
       <h2
-  className="text-3xl font-extrabold bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 bg-clip-text text-transparent mb-8 text-center drop-shadow-lg"
-  style={{ fontFamily: "Poppins, sans-serif" }}
->
-  Frequently Asked Questions
-</h2>
+        className="text-3xl font-extrabold bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 bg-clip-text text-transparent mb-8 text-center drop-shadow-lg"
+        style={{ fontFamily: "Poppins, sans-serif" }}
+      >
+        よくある質問
+      </h2>
       <div className="space-y-4">
         {faqs.map((faq, index) => (
           <div
