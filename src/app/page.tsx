@@ -10,6 +10,7 @@ import Pricing from "@/components/Pricing";
 import Slider from "@/components/Slider";
 import Gallery from "@/components/Gallery";
 import Image from "next/image";
+import Hero from "@/components/Hero";
 
 export default function Home() {
   const images = [
@@ -47,6 +48,7 @@ export default function Home() {
   return (
     <div>
       <Header />
+      <Hero/>
       <Benefits />
       <ServiceCards />
       <Slider />
