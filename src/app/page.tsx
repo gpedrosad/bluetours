@@ -9,7 +9,6 @@ import BookTour from "@/components/BookTour";
 import Pricing from "@/components/Pricing";
 import Slider from "@/components/Slider";
 import Gallery from "@/components/Gallery";
-import Image from "next/image";
 import Hero from "@/components/Hero";
 import ReviewSlider from "@/components/ReviewSlider";
 
@@ -56,7 +55,7 @@ export default function Home() {
       <ServiceCards />
       <Slider />
       <MeetShane />
-      <BookTour buttonText="Book Now" />
+      <BookTour buttonText="予約する" />
       <Pricing />
       <ReviewSlider />
       <Timeline />

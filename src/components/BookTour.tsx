@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from 'react';
 
-// Definición de las props
+// プロパティの定義
 interface BookTourProps {
   buttonText: string;
 }
@@ -20,9 +20,7 @@ const BookTour: React.FC<BookTourProps> = ({ buttonText }) => {
     email: '',
     hotel: '',
   });
-  const [totalPrice, setTotalPrice] = useState<number>(185); // Inicialmente 1 adulto
-  const [isPackageApplied, setIsPackageApplied] = useState<boolean>(false);
-  const [saving, setSaving] = useState<number>(0);
+  const [totalPrice, setTotalPrice] = useState<number>(185); // 初期値：大人1人
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -32,32 +30,25 @@ const BookTour: React.FC<BookTourProps> = ({ buttonText }) => {
     }));
   };
 
-  // Calcular el precio total y el ahorro cada vez que cambian los adultos o niños
+  // 大人と子供の数が変わるたびに合計金額を計算
   useEffect(() => {
     const adults = parseInt(formData.adults as unknown as string, 10);
     const children = parseInt(formData.children as unknown as string, 10);
 
-    // Precio estándar
+    // 通常価格
     const standardPrice = adults * 185 + children * 115;
 
     if (adults === 2 && children === 2) {
       setTotalPrice(585);
-      setIsPackageApplied(true);
-      setSaving(standardPrice - 585); // 600 - 585 = 15 AUD
     } else {
       setTotalPrice(standardPrice);
-      setIsPackageApplied(false);
-      setSaving(0);
     }
   }, [formData.adults, formData.children]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Aquí puedes manejar el envío del formulario, como enviar a una API
-    console.log(formData, `Total Price: ${totalPrice} AUD`);
-    // Cerrar el modal después de enviar
+    console.log(formData, `合計金額: ${totalPrice} AUD`);
     setIsOpen(false);
-    // Resetear el formulario
     setFormData({
       name: '',
       date1: '',
@@ -68,15 +59,12 @@ const BookTour: React.FC<BookTourProps> = ({ buttonText }) => {
       email: '',
       hotel: '',
     });
-    // Resetear el precio total y el ahorro
     setTotalPrice(185);
-    setIsPackageApplied(false);
-    setSaving(0);
   };
 
   return (
     <div className="flex flex-col items-center justify-center p-6">
-      {/* Botón de Llamado a la Acción */}
+      {/* 予約ボタン */}
       <button
         onClick={() => setIsOpen(true)}
         className="px-8 py-4 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition duration-300 shadow-lg"
@@ -84,26 +72,26 @@ const BookTour: React.FC<BookTourProps> = ({ buttonText }) => {
         {buttonText}
       </button>
 
-      {/* Modal */}
+      {/* モーダル */}
       {isOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white rounded-lg shadow-lg w-full max-w-lg p-8 relative">
-            {/* Botón de Cerrar */}
+            {/* 閉じるボタン */}
             <button
               onClick={() => setIsOpen(false)}
               className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-3xl"
-              aria-label="Cerrar modal"
+              aria-label="モーダルを閉じる"
             >
               &times;
             </button>
 
-            <h2 className="text-2xl font-bold mb-6 text-center">Reserva tu Tour</h2>
+            <h2 className="text-2xl font-bold mb-6 text-center">ツアーを予約</h2>
 
             <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Nombre */}
+              {/* 名前 */}
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                  Nombre
+                  名前
                 </label>
                 <input
                   type="text"
@@ -113,17 +101,17 @@ const BookTour: React.FC<BookTourProps> = ({ buttonText }) => {
                   value={formData.name}
                   onChange={handleChange}
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-blue-500 focus:border-blue-500"
-                  placeholder="Ingresa tu nombre completo"
+                  placeholder="フルネームを入力してください"
                 />
               </div>
 
-              {/* Fechas */}
+              {/* 希望日 */}
               <div>
-                <label className="block text-sm font-medium text-gray-700">Fechas Preferidas</label>
+                <label className="block text-sm font-medium text-gray-700">希望日</label>
                 <div className="flex space-x-4 mt-2">
                   <div className="flex-1">
                     <label htmlFor="date1" className="sr-only">
-                      Primera Opción
+                      第一希望
                     </label>
                     <input
                       type="date"
@@ -134,11 +122,11 @@ const BookTour: React.FC<BookTourProps> = ({ buttonText }) => {
                       onChange={handleChange}
                       className="block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-blue-500 focus:border-blue-500"
                     />
-                    <span className="text-xs text-gray-500">Primera Opción</span>
+                    <span className="text-xs text-gray-500">第一希望</span>
                   </div>
                   <div className="flex-1">
                     <label htmlFor="date2" className="sr-only">
-                      Segunda Opción
+                      第二希望
                     </label>
                     <input
                       type="date"
@@ -148,19 +136,16 @@ const BookTour: React.FC<BookTourProps> = ({ buttonText }) => {
                       onChange={handleChange}
                       className="block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-blue-500 focus:border-blue-500"
                     />
-                    <span className="text-xs text-gray-500">Segunda Opción</span>
+                    <span className="text-xs text-gray-500">第二希望</span>
                   </div>
                 </div>
               </div>
 
-              {/* Número de Personas */}
+              {/* 人数 */}
               <div>
-                <label className="block text-sm font-medium text-gray-700">Número de Personas</label>
+                <label className="block text-sm font-medium text-gray-700">人数</label>
                 <div className="grid grid-cols-3 gap-6 mt-2">
                   <div>
-                    <label htmlFor="adults" className="sr-only">
-                      Adultos
-                    </label>
                     <input
                       type="number"
                       id="adults"
@@ -169,15 +154,12 @@ const BookTour: React.FC<BookTourProps> = ({ buttonText }) => {
                       required
                       value={formData.adults}
                       onChange={handleChange}
-                      className="block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-blue-500 focus:border-blue-500"
-                      placeholder="Adultos"
+                      className="block w-full border border-gray-300 rounded-md shadow-sm p-3"
+                      placeholder="大人"
                     />
-                    <span className="text-xs text-gray-500">Adultos</span>
+                    <span className="text-xs text-gray-500">大人</span>
                   </div>
                   <div>
-                    <label htmlFor="children" className="sr-only">
-                      Niños (3-14)
-                    </label>
                     <input
                       type="number"
                       id="children"
@@ -185,15 +167,12 @@ const BookTour: React.FC<BookTourProps> = ({ buttonText }) => {
                       min={0}
                       value={formData.children}
                       onChange={handleChange}
-                      className="block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-blue-500 focus:border-blue-500"
-                      placeholder="Niños"
+                      className="block w-full border border-gray-300 rounded-md shadow-sm p-3"
+                      placeholder="子供 (3-14)"
                     />
-                    <span className="text-xs text-gray-500">Niños (3-14)</span>
+                    <span className="text-xs text-gray-500">子供 (3-14)</span>
                   </div>
                   <div>
-                    <label htmlFor="infants" className="sr-only">
-                      Infantes
-                    </label>
                     <input
                       type="number"
                       id="infants"
@@ -201,18 +180,18 @@ const BookTour: React.FC<BookTourProps> = ({ buttonText }) => {
                       min={0}
                       value={formData.infants}
                       onChange={handleChange}
-                      className="block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-blue-500 focus:border-blue-500"
-                      placeholder="Infantes"
+                      className="block w-full border border-gray-300 rounded-md shadow-sm p-3"
+                      placeholder="幼児"
                     />
-                    <span className="text-xs text-gray-500">Infantes</span>
+                    <span className="text-xs text-gray-500">幼児</span>
                   </div>
                 </div>
               </div>
 
-              {/* Email */}
+              {/* メール */}
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                  Email
+                  メールアドレス
                 </label>
                 <input
                   type="email"
@@ -221,15 +200,15 @@ const BookTour: React.FC<BookTourProps> = ({ buttonText }) => {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-blue-500 focus:border-blue-500"
-                  placeholder="Ingresa tu email"
+                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3"
+                  placeholder="メールを入力してください"
                 />
               </div>
 
-              {/* Hotel */}
+              {/* ホテル */}
               <div>
                 <label htmlFor="hotel" className="block text-sm font-medium text-gray-700">
-                  Hotel
+                  ホテル
                 </label>
                 <input
                   type="text"
@@ -238,47 +217,18 @@ const BookTour: React.FC<BookTourProps> = ({ buttonText }) => {
                   required
                   value={formData.hotel}
                   onChange={handleChange}
-                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-blue-500 focus:border-blue-500"
-                  placeholder="Nombre del hotel"
+                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3"
+                  placeholder="ホテル名を入力してください"
                 />
               </div>
 
-              {/* Precio Total */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700">Precio Total</label>
-                <div className="mt-1">
-                  <input
-                    type="text"
-                    readOnly
-                    value={`${totalPrice.toLocaleString('es-AR', {
-                      style: 'currency',
-                      currency: 'AUD',
-                      minimumFractionDigits: 2,
-                    })}`}
-                    className={`block w-full border ${
-                      isPackageApplied ? 'border-green-500' : 'border-gray-300'
-                    } rounded-md shadow-sm p-3 bg-gray-50`}
-                  />
-                </div>
-                {isPackageApplied && (
-                  <span className="text-xs text-green-600">
-                    Paquete aplicado, estás ahorrando{' '}
-                    {saving.toLocaleString('es-AR', {
-                      style: 'currency',
-                      currency: 'AUD',
-                      minimumFractionDigits: 2,
-                    })}
-                  </span>
-                )}
-              </div>
-
-              {/* Botón de Envío */}
+              {/* 送信ボタン */}
               <div className="flex justify-center">
                 <button
                   type="submit"
                   className="w-full md:w-1/2 px-6 py-3 bg-green-600 text-white font-semibold rounded-md hover:bg-green-700 transition duration-300 shadow-md"
                 >
-                  Enviar Reserva
+                  予約を送信
                 </button>
               </div>
             </form>

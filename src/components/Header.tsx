@@ -9,7 +9,7 @@ const Header: React.FC = () => {
       <div className="container mx-auto px-4 py-4 flex justify-center items-center">
         <Image
           src="/logo.webp"
-          alt="TrueBlueTours Logo"
+          alt=""
           width={120}
           height={120}
         />

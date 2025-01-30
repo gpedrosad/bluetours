@@ -53,7 +53,7 @@ const Footer: React.FC = () => {
       {/* Línea Divisoria y Derechos de Autor */}
       <div className="mt-8 border-t border-gray-700 pt-4">
         <p className="text-center text-sm text-gray-400">
-          © {new Date().getFullYear()} TrueBlueTours. All rights reserved.
+          TrueBlueTours. All rights reserved.
         </p>
       </div>
     </footer>

@@ -40,7 +40,7 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
     );
   };
 
-  // Manejo de teclas para accesibilidad
+  // アクセシビリティのためのキー操作ハンドリング
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!isOpen) return;
@@ -64,21 +64,21 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
 
   return (
     <>
-      {/* Contenedor de la Galería */}
+      {/* ギャラリーコンテナ */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <h2
-  className="text-3xl font-extrabold bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 bg-clip-text text-transparent mb-8 text-center drop-shadow-lg"
-  style={{ fontFamily: "Poppins, sans-serif" }}
->
-  Experience Gallery
-</h2>
+        <h2
+          className="text-3xl font-extrabold bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 bg-clip-text text-transparent mb-8 text-center drop-shadow-lg"
+          style={{ fontFamily: "Poppins, sans-serif" }}
+        >
+          ギャラリー
+        </h2>
 
         {/*
-          Masonry Layout:
-          - columns-2: 2 columnas en "mobile" (base)
-          - sm:columns-3: 3 columnas en pantallas >= 640px
-          - md:columns-4: 4 columnas en pantallas >= 768px
-          - gap-4: espacio horizontal entre columnas
+          マソニーレイアウト:
+          - columns-2: モバイル（基本）で2列
+          - sm:columns-3: 画面幅 >= 640pxで3列
+          - md:columns-4: 画面幅 >= 768pxで4列
+          - gap-4: 列間の水平スペース
         */}
         <div className="columns-2 sm:columns-3 md:columns-4 gap-4">
           {images.map((img, index) => (
@@ -101,58 +101,58 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
                   loading="lazy"
                 />
               </div>
-              {/* Overlay de hover */}
-              <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-25 transition duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
-                <span className="text-white text-lg">Ver Imagen</span>
-              </div>
+              {/* ホバー時のオーバーレイを削除 */}
+              {/* <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-25 transition duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                <span className="text-white text-lg">画像を見る</span>
+              </div> */}
             </div>
           ))}
         </div>
       </div>
 
-      {/* Lightbox (Modal) */}
+      {/* ライトボックス（モーダル） */}
       {isOpen && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75 transition-opacity duration-300"
           onClick={closeLightbox}
         >
           <div
-            // Agregamos padding top (pt-16) para garantizar espacio arriba
-            // y también limitamos la altura (max-h-screen) + overflow-hidden
+            // 上部にスペースを確保するためにpadding top (pt-16)を追加
+            // 画面の高さを超えないように高さを制限 (max-h-screen) + overflow-hidden
             className="relative max-w-3xl w-full mx-4 pt-16 max-h-screen overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Botón Cerrar */}
+            {/* 閉じるボタン */}
             <button
               className="absolute top-4 right-4 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition"
               onClick={closeLightbox}
-              aria-label="Cerrar"
+              aria-label="閉じる"
             >
               <AiOutlineClose size={24} />
             </button>
 
-            {/* Botón Anterior */}
+            {/* 前へボタン */}
             <button
               className="absolute left-0 top-1/2 transform -translate-y-1/2 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition"
               onClick={showPrev}
-              aria-label="Anterior"
+              aria-label="前へ"
             >
               <AiOutlineLeft size={24} />
             </button>
 
-            {/* Botón Siguiente */}
+            {/* 次へボタン */}
             <button
               className="absolute right-0 top-1/2 transform -translate-y-1/2 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition"
               onClick={showNext}
-              aria-label="Siguiente"
+              aria-label="次へ"
             >
               <AiOutlineRight size={24} />
             </button>
 
             {/*
-              Contenedor de la imagen:
-              - "flex items-center justify-center" para centrar
-              - "max-h-[calc(100vh-6rem)]" para no sobrepasar el alto total de la pantalla menos 6rem
+              画像コンテナ:
+              - "flex items-center justify-center" で中央に配置
+              - "max-h-[calc(100vh-6rem)]" で画面全体の高さを超えないように制限
             */}
             <div className="flex items-center justify-center max-h-[calc(100vh-6rem)]">
               <Image
@@ -165,12 +165,14 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
               />
             </div>
 
-            {/* Texto alt debajo de la imagen */}
-            {images[currentIndex].alt && (
-              <p className="text-center text-white mt-2">
-                {images[currentIndex].alt}
-              </p>
-            )}
+            {/* 画像の下にaltテキストを表示しない場合は以下を削除 */}
+            {/*
+              {images[currentIndex].alt && (
+                <p className="text-center text-white mt-2">
+                  {images[currentIndex].alt}
+                </p>
+              )}
+            */}
           </div>
         </div>
       )}
