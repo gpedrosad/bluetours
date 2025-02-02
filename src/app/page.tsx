@@ -1,5 +1,5 @@
 import Benefits from "@/components/Benefits";
-import FAQAccordion from "@/components/FAQAccordion";
+//import FAQAccordion from "@/components/FAQAccordion";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import ServiceCards from "@/components/ServiceCards";
@@ -60,7 +60,7 @@ export default function Home() {
       <ReviewSlider />
       <Timeline />
       <Gallery images={images} />
-      <FAQAccordion />
+      {/* <FAQAccordion /> */}
       <Footer />
 
     </div>
