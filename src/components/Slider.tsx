@@ -24,32 +24,7 @@ const Slider: React.FC = () => {
       commonly_seen: '日中',
       probability: '5％',
     },
-    {
-      id: 2,
-      src: '/flyingfox.webp',
-      alt: 'メガネオオコウモリ',
-      title: 'メガネオオコウモリ | Flying Fox',
-      description: `オオコウモリは湿潤熱帯雨林において果実や花粉の散布に非常に重要です。年ごとに最大で20万匹のメガネオオコウモリがFNQに移動し、食事や繁殖のためにやってきます。オーストラリアで最も知能の高い在来動物の一つとされています。
-      
-      通常のツアーで見ることができます。`,
-      locations: ['ケアンズ市内', 'アサートン高原', 'パロネラパーク', 'マリーバ', 'キュランダ'],
-      season: '🌞 通年',
-      commonly_seen: '日中',
-      probability: '50％',
-    },
-    {
-      id: 3,
-      src: '/treekangoroo.webp',
-      alt: 'カオグロキノボリカンガルー',
-      title: 'カオグロキノボリカンガルー | Lumholtz’s Tree Kangaroo',
-      description: `標高700メートルから1000メートルの間にあるFNQ（Far North Queensland）の湿潤な熱帯雨林にのみ生息しています。昼夜を問わず活動します。雌と雄はほとんど別々に生活し、繁殖期の終盤にのみ一緒になります。
-      
-      通常のツアーではめったに見られませんが、リクエストがあればチャーターでの観察確率は80％以上です。`,
-      locations: ['アサートン高原'],
-      season: '🌞 通年',
-      commonly_seen: '日中',
-      probability: '5％',
-    },
+    
     {
       id: 4,
       src: '/kookaburra.webp',

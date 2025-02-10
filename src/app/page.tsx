@@ -2,7 +2,7 @@ import Benefits from "@/components/Benefits";
 //import FAQAccordion from "@/components/FAQAccordion";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import ServiceCards from "@/components/ServiceCards";
+//import ServiceCards from "@/components/ServiceCards";
 import MeetShane from "@/components/MeetShane";
 import Timeline from "@/components/Timeline";
 import BookTour from "@/components/BookTour";
@@ -11,7 +11,7 @@ import Slider from "@/components/Slider";
 import Gallery from "@/components/Gallery";
 import Hero from "@/components/Hero";
 import ReviewSlider from "@/components/ReviewSlider";
-
+import ActivitiesGrid from "@/components/ActivitiesGrid";
 
 
 export default function Home() {
@@ -51,9 +51,10 @@ export default function Home() {
     <div>
       <Header />
       <Hero/>
-      <Benefits />
-      <ServiceCards />
+      {/* <Benefits /> */}
+      {/* <ServiceCards /> */}
       <Slider />
+      <ActivitiesGrid />
       <MeetShane />
       <BookTour buttonText="予約する" />
       <Pricing />
