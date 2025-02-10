@@ -1,4 +1,5 @@
-import Benefits from "@/components/Benefits";
+
+//import Benefits from "@/components/Benefits";
 //import FAQAccordion from "@/components/FAQAccordion";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
@@ -12,6 +13,7 @@ import Gallery from "@/components/Gallery";
 import Hero from "@/components/Hero";
 import ReviewSlider from "@/components/ReviewSlider";
 import ActivitiesGrid from "@/components/ActivitiesGrid";
+
 
 
 export default function Home() {
