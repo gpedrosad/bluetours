@@ -3,6 +3,12 @@
 
 import { useState, useEffect } from 'react';
 
+declare global {
+  interface Window {
+    fbq?: (event: string, ...args: unknown[]) => void;
+  }
+}
+
 // プロパティの定義
 interface BookTourProps {
   buttonText: string;
@@ -48,6 +54,12 @@ const BookTour: React.FC<BookTourProps> = ({ buttonText }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log(formData, `合計金額: ${totalPrice} AUD`);
+
+    // Disparar el evento NewLead mediante el pixel de Facebook
+    if (typeof window !== 'undefined' && window.fbq) {
+      window.fbq('track', 'NewLead');
+    }
+
     setIsOpen(false);
     setFormData({
       name: '',
@@ -200,7 +212,7 @@ const BookTour: React.FC<BookTourProps> = ({ buttonText }) => {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3"
+                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-blue-500 focus:border-blue-500"
                   placeholder="メールを入力してください"
                 />
               </div>
@@ -217,7 +229,7 @@ const BookTour: React.FC<BookTourProps> = ({ buttonText }) => {
                   required
                   value={formData.hotel}
                   onChange={handleChange}
-                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3"
+                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-blue-500 focus:border-blue-500"
                   placeholder="ホテル名を入力してください"
                 />
               </div>
