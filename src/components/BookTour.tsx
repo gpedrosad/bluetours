@@ -1,4 +1,3 @@
-// components/BookTour.tsx
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -9,7 +8,6 @@ declare global {
   }
 }
 
-// プロパティの定義
 interface BookTourProps {
   buttonText: string;
 }
@@ -26,52 +24,18 @@ const BookTour: React.FC<BookTourProps> = ({ buttonText }) => {
     email: '',
     hotel: '',
   });
-  const [totalPrice, setTotalPrice] = useState<number>(185); // 初期値：大人1人
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  // 大人と子供の数が変わるたびに合計金額を計算
   useEffect(() => {
-    const adults = parseInt(formData.adults as unknown as string, 10);
-    const children = parseInt(formData.children as unknown as string, 10);
-
-    // 通常価格
-    const standardPrice = adults * 185 + children * 115;
-
-    if (adults === 2 && children === 2) {
-      setTotalPrice(585);
-    } else {
-      setTotalPrice(standardPrice);
-    }
-  }, [formData.adults, formData.children]);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log(formData, `合計金額: ${totalPrice} AUD`);
-
-    // Disparar el evento NewLead mediante el pixel de Facebook
     if (typeof window !== 'undefined' && window.fbq) {
       window.fbq('track', 'NewLead');
     }
+  }, []);
 
-    setIsOpen(false);
-    setFormData({
-      name: '',
-      date1: '',
-      date2: '',
-      adults: 1,
-      children: 0,
-      infants: 0,
-      email: '',
-      hotel: '',
-    });
-    setTotalPrice(185);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
   };
 
   return (
@@ -99,12 +63,18 @@ const BookTour: React.FC<BookTourProps> = ({ buttonText }) => {
 
             <h2 className="text-2xl font-bold mb-6 text-center">ツアーを予約</h2>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            {/* フォーム */}
+            <form
+              action="https://formsubmit.co/trueblue163@gmail.com"
+              method="POST"
+              className="space-y-6"
+            >
+              {/* スパム防止用の隠しフィールド */}
+              <input type="hidden" name="_captcha" value="false" />
+
               {/* 名前 */}
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                  名前
-                </label>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700">名前</label>
                 <input
                   type="text"
                   id="name"
@@ -112,7 +82,7 @@ const BookTour: React.FC<BookTourProps> = ({ buttonText }) => {
                   required
                   value={formData.name}
                   onChange={handleChange}
-                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-blue-500 focus:border-blue-500"
+                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3"
                   placeholder="フルネームを入力してください"
                 />
               </div>
@@ -122,9 +92,6 @@ const BookTour: React.FC<BookTourProps> = ({ buttonText }) => {
                 <label className="block text-sm font-medium text-gray-700">希望日</label>
                 <div className="flex space-x-4 mt-2">
                   <div className="flex-1">
-                    <label htmlFor="date1" className="sr-only">
-                      第一希望
-                    </label>
                     <input
                       type="date"
                       id="date1"
@@ -132,21 +99,18 @@ const BookTour: React.FC<BookTourProps> = ({ buttonText }) => {
                       required
                       value={formData.date1}
                       onChange={handleChange}
-                      className="block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-blue-500 focus:border-blue-500"
+                      className="block w-full border border-gray-300 rounded-md shadow-sm p-3"
                     />
                     <span className="text-xs text-gray-500">第一希望</span>
                   </div>
                   <div className="flex-1">
-                    <label htmlFor="date2" className="sr-only">
-                      第二希望
-                    </label>
                     <input
                       type="date"
                       id="date2"
                       name="date2"
                       value={formData.date2}
                       onChange={handleChange}
-                      className="block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-blue-500 focus:border-blue-500"
+                      className="block w-full border border-gray-300 rounded-md shadow-sm p-3"
                     />
                     <span className="text-xs text-gray-500">第二希望</span>
                   </div>
@@ -167,7 +131,6 @@ const BookTour: React.FC<BookTourProps> = ({ buttonText }) => {
                       value={formData.adults}
                       onChange={handleChange}
                       className="block w-full border border-gray-300 rounded-md shadow-sm p-3"
-                      placeholder="大人"
                     />
                     <span className="text-xs text-gray-500">大人</span>
                   </div>
@@ -180,7 +143,6 @@ const BookTour: React.FC<BookTourProps> = ({ buttonText }) => {
                       value={formData.children}
                       onChange={handleChange}
                       className="block w-full border border-gray-300 rounded-md shadow-sm p-3"
-                      placeholder="子供 (3-14)"
                     />
                     <span className="text-xs text-gray-500">子供 (3-14)</span>
                   </div>
@@ -193,7 +155,6 @@ const BookTour: React.FC<BookTourProps> = ({ buttonText }) => {
                       value={formData.infants}
                       onChange={handleChange}
                       className="block w-full border border-gray-300 rounded-md shadow-sm p-3"
-                      placeholder="幼児"
                     />
                     <span className="text-xs text-gray-500">幼児</span>
                   </div>
@@ -212,16 +173,14 @@ const BookTour: React.FC<BookTourProps> = ({ buttonText }) => {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-blue-500 focus:border-blue-500"
+                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3"
                   placeholder="メールを入力してください"
                 />
               </div>
 
               {/* ホテル */}
               <div>
-                <label htmlFor="hotel" className="block text-sm font-medium text-gray-700">
-                  ホテル
-                </label>
+                <label htmlFor="hotel" className="block text-sm font-medium text-gray-700">ホテル</label>
                 <input
                   type="text"
                   id="hotel"
@@ -229,7 +188,7 @@ const BookTour: React.FC<BookTourProps> = ({ buttonText }) => {
                   required
                   value={formData.hotel}
                   onChange={handleChange}
-                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-blue-500 focus:border-blue-500"
+                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3"
                   placeholder="ホテル名を入力してください"
                 />
               </div>
