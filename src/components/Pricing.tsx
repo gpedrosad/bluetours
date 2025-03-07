@@ -7,7 +7,7 @@ const Pricing: React.FC = () => {
     {
       type: '大人',
       description: '1名',
-      price: '185.00 AUD',
+      price: '195.00 AUD',
       icon: '👤',
     },
     {
@@ -19,7 +19,7 @@ const Pricing: React.FC = () => {
     {
       type: 'ファミリーパッケージ',
       description: '(大人2名 + 子供2名)',
-      price: '585.00 AUD',
+      price: '600.00 AUD',
       icon: '👨‍👩‍👧‍👦',
     },
   ];
