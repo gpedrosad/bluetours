@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import emailjs from 'emailjs-com';
 
 declare global {
@@ -38,16 +38,16 @@ const BookTour: React.FC<BookTourProps> = ({ buttonText }) => {
 
     emailjs
       .send(
-        'service_atqszb5', // Tu Service ID
-        'template_0bht6f9', // Tu Template ID
+        'service_atqszb5',
+        'template_0bht6f9',
         formData,
-        'yEmX5HoErnJIO9bSh' // Tu Public Key
+        'yEmX5HoErnJIO9bSh'
       )
       .then(
         (result) => {
           console.log(result.text);
 
-          // 🔥 Aquí se dispara el evento solo si el envío fue exitoso
+          // 🔥 Evento de conversión solo al enviar exitosamente
           if (typeof window !== 'undefined' && window.fbq) {
             window.fbq('track', 'Lead');
           }
@@ -95,6 +95,7 @@ const BookTour: React.FC<BookTourProps> = ({ buttonText }) => {
             <h2 className="text-2xl font-bold mb-6 text-center">Book a Tour</h2>
 
             <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Name */}
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700">
                   Full Name
@@ -111,6 +112,7 @@ const BookTour: React.FC<BookTourProps> = ({ buttonText }) => {
                 />
               </div>
 
+              {/* Preferred Dates */}
               <div>
                 <label className="block text-sm font-medium text-gray-700">Preferred Dates</label>
                 <div className="flex space-x-4 mt-2">
@@ -140,6 +142,7 @@ const BookTour: React.FC<BookTourProps> = ({ buttonText }) => {
                 </div>
               </div>
 
+              {/* Group Size */}
               <div>
                 <label className="block text-sm font-medium text-gray-700">Number of People</label>
                 <div className="grid grid-cols-3 gap-6 mt-2">
@@ -183,6 +186,7 @@ const BookTour: React.FC<BookTourProps> = ({ buttonText }) => {
                 </div>
               </div>
 
+              {/* Email */}
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                   Email Address
@@ -199,6 +203,7 @@ const BookTour: React.FC<BookTourProps> = ({ buttonText }) => {
                 />
               </div>
 
+              {/* Hotel */}
               <div>
                 <label htmlFor="hotel" className="block text-sm font-medium text-gray-700">Hotel Name</label>
                 <input
@@ -213,6 +218,7 @@ const BookTour: React.FC<BookTourProps> = ({ buttonText }) => {
                 />
               </div>
 
+              {/* Submit Button */}
               <div className="flex justify-center">
                 <button
                   type="submit"
