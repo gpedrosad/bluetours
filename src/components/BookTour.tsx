@@ -47,12 +47,12 @@ const BookTour: React.FC<BookTourProps> = ({ buttonText }) => {
         (result) => {
           console.log(result.text);
 
-          // 🔥 Evento de conversión solo al enviar exitosamente
+          // 🔥 成功時のコンバージョンイベントのみ
           if (typeof window !== 'undefined' && window.fbq) {
             window.fbq('track', 'Lead');
           }
 
-          alert('Your tour booking has been sent successfully!');
+          alert('ツアーの予約が正常に送信されました！');
           setIsOpen(false);
           setFormData({
             name: '',
@@ -67,7 +67,7 @@ const BookTour: React.FC<BookTourProps> = ({ buttonText }) => {
         },
         (error) => {
           console.error(error.text);
-          alert('Failed to send booking. Please try again.');
+          alert('予約の送信に失敗しました。再度お試しください。');
         }
       );
   };
@@ -87,18 +87,18 @@ const BookTour: React.FC<BookTourProps> = ({ buttonText }) => {
             <button
               onClick={() => setIsOpen(false)}
               className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-3xl"
-              aria-label="Close modal"
+              aria-label="モーダルを閉じる"
             >
               &times;
             </button>
 
-            <h2 className="text-2xl font-bold mb-6 text-center">Book a Tour</h2>
+            <h2 className="text-2xl font-bold mb-6 text-center">ツアーを予約</h2>
 
             <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Name */}
+              {/* 氏名 */}
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                  Full Name
+                  氏名
                 </label>
                 <input
                   type="text"
@@ -108,13 +108,13 @@ const BookTour: React.FC<BookTourProps> = ({ buttonText }) => {
                   value={formData.name}
                   onChange={handleChange}
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3"
-                  placeholder="Enter your full name"
+                  placeholder="フルネームを入力してください"
                 />
               </div>
 
-              {/* Preferred Dates */}
+              {/* 希望日 */}
               <div>
-                <label className="block text-sm font-medium text-gray-700">Preferred Dates</label>
+                <label className="block text-sm font-medium text-gray-700">希望日</label>
                 <div className="flex space-x-4 mt-2">
                   <div className="flex-1">
                     <input
@@ -126,7 +126,7 @@ const BookTour: React.FC<BookTourProps> = ({ buttonText }) => {
                       onChange={handleChange}
                       className="block w-full border border-gray-300 rounded-md shadow-sm p-3"
                     />
-                    <span className="text-xs text-gray-500">First Preference</span>
+                    <span className="text-xs text-gray-500">第一希望</span>
                   </div>
                   <div className="flex-1">
                     <input
@@ -137,14 +137,14 @@ const BookTour: React.FC<BookTourProps> = ({ buttonText }) => {
                       onChange={handleChange}
                       className="block w-full border border-gray-300 rounded-md shadow-sm p-3"
                     />
-                    <span className="text-xs text-gray-500">Second Preference</span>
+                    <span className="text-xs text-gray-500">第二希望</span>
                   </div>
                 </div>
               </div>
 
-              {/* Group Size */}
+              {/* グループ人数 */}
               <div>
-                <label className="block text-sm font-medium text-gray-700">Number of People</label>
+                <label className="block text-sm font-medium text-gray-700">人数</label>
                 <div className="grid grid-cols-3 gap-6 mt-2">
                   <div>
                     <input
@@ -157,7 +157,7 @@ const BookTour: React.FC<BookTourProps> = ({ buttonText }) => {
                       onChange={handleChange}
                       className="block w-full border border-gray-300 rounded-md shadow-sm p-3"
                     />
-                    <span className="text-xs text-gray-500">Adults</span>
+                    <span className="text-xs text-gray-500">大人</span>
                   </div>
                   <div>
                     <input
@@ -169,7 +169,7 @@ const BookTour: React.FC<BookTourProps> = ({ buttonText }) => {
                       onChange={handleChange}
                       className="block w-full border border-gray-300 rounded-md shadow-sm p-3"
                     />
-                    <span className="text-xs text-gray-500">Children (3-14)</span>
+                    <span className="text-xs text-gray-500">子供（3～14歳）</span>
                   </div>
                   <div>
                     <input
@@ -181,15 +181,15 @@ const BookTour: React.FC<BookTourProps> = ({ buttonText }) => {
                       onChange={handleChange}
                       className="block w-full border border-gray-300 rounded-md shadow-sm p-3"
                     />
-                    <span className="text-xs text-gray-500">Infants</span>
+                    <span className="text-xs text-gray-500">乳児</span>
                   </div>
                 </div>
               </div>
 
-              {/* Email */}
+              {/* メールアドレス */}
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                  Email Address
+                  メールアドレス
                 </label>
                 <input
                   type="email"
@@ -199,13 +199,13 @@ const BookTour: React.FC<BookTourProps> = ({ buttonText }) => {
                   value={formData.email}
                   onChange={handleChange}
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3"
-                  placeholder="Enter your email address"
+                  placeholder="メールアドレスを入力してください"
                 />
               </div>
 
-              {/* Hotel */}
+              {/* ホテル名 */}
               <div>
-                <label htmlFor="hotel" className="block text-sm font-medium text-gray-700">Hotel Name</label>
+                <label htmlFor="hotel" className="block text-sm font-medium text-gray-700">ホテル名</label>
                 <input
                   type="text"
                   id="hotel"
@@ -214,17 +214,17 @@ const BookTour: React.FC<BookTourProps> = ({ buttonText }) => {
                   value={formData.hotel}
                   onChange={handleChange}
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3"
-                  placeholder="Enter your hotel name"
+                  placeholder="ホテル名を入力してください"
                 />
               </div>
 
-              {/* Submit Button */}
+              {/* 送信ボタン */}
               <div className="flex justify-center">
                 <button
                   type="submit"
                   className="w-full md:w-1/2 px-6 py-3 bg-green-600 text-white font-semibold rounded-md hover:bg-green-700 transition duration-300 shadow-md"
                 >
-                  Send Booking
+                  予約を送信
                 </button>
               </div>
             </form>
