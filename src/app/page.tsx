@@ -17,7 +17,7 @@ import ActivitiesGrid from "@/components/ActivitiesGrid";
 
 
 export default function Home() {
-  const images = [
+  /*const images = [
     { src: "/ragallodairy1.JPG", alt: "Ragallo Dairy 1" },
     { src: "/ragallodairy2.JPG", alt: "Ragallo Dairy 2" },
     { src: "/ragallodairy3.JPG", alt: "Ragallo Dairy 3" },
@@ -47,7 +47,7 @@ export default function Home() {
 
 
     
-  ];
+  ];*/
 
   return (
     <div>
