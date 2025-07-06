@@ -9,7 +9,7 @@ import Timeline from "@/components/Timeline";
 import BookTour from "@/components/BookTour";
 import Pricing from "@/components/Pricing";
 import Slider from "@/components/Slider";
-import Gallery from "@/components/Gallery";
+//import Gallery from "@/components/Gallery";
 import Hero from "@/components/Hero";
 import ReviewSlider from "@/components/ReviewSlider";
 import ActivitiesGrid from "@/components/ActivitiesGrid";
