@@ -62,7 +62,7 @@ export default function Home() {
       <Pricing />
       <ReviewSlider />
       <Timeline />
-      <Gallery images={images} />
+      {/* <Gallery images={images} /> */}
       {/* <FAQAccordion /> */}
       <Footer />
 

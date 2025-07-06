@@ -28,7 +28,7 @@ const Footer: React.FC = () => {
 
           {/* Facebook */}
           <a
-            href="https://www.facebook.com/truebluetours" // Reemplaza con tu enlace de Facebook
+            href="https://www.facebook.com/cairnstour/?locale=ja_JP" // Reemplaza con tu enlace de Facebook
             target="_blank"
             rel="noopener noreferrer"
             className="text-white hover:text-blue-400 transition-colors duration-300"
