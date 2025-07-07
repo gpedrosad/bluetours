@@ -8,16 +8,18 @@ import MeetShane from "@/components/MeetShane";
 import Timeline from "@/components/Timeline";
 import BookTour from "@/components/BookTour";
 import Pricing from "@/components/Pricing";
-import Slider from "@/components/Slider";
+//import Slider from "@/components/Slider"; 
 //import Gallery from "@/components/Gallery";
 import Hero from "@/components/Hero";
 import ReviewSlider from "@/components/ReviewSlider";
 import ActivitiesGrid from "@/components/ActivitiesGrid";
+import Gallery from "@/components/Gallery";
+
 
 
 
 export default function Home() {
-  /*const images = [
+  const images = [
     { src: "/ragallodairy1.JPG", alt: "Ragallo Dairy 1" },
     { src: "/ragallodairy2.JPG", alt: "Ragallo Dairy 2" },
     { src: "/ragallodairy3.JPG", alt: "Ragallo Dairy 3" },
@@ -47,7 +49,7 @@ export default function Home() {
 
 
     
-  ];*/
+  ]
 
   return (
     <div>
@@ -55,14 +57,14 @@ export default function Home() {
       <Hero/>
       {/* <Benefits /> */}
       {/* <ServiceCards /> */}
-      <Slider />
+      {/* <Slider /> */}
       <ActivitiesGrid />
       <MeetShane />
       <BookTour buttonText="予約する" />
       <Pricing />
       <ReviewSlider />
       <Timeline />
-      {/* <Gallery images={images} /> */}
+      <Gallery images={images} />
       {/* <FAQAccordion /> */}
       <Footer />
 
